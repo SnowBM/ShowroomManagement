@@ -10,12 +10,11 @@ import java.util.*;
 /**
  *
  * @author admin
- * Update: hungtd
+ * update hungtd
  */
 public class CarService {
     Scanner sc = new Scanner (System.in);
-    
-    private List<Car> cars = new ArrayList<>();
+      private List<Car> cars = new ArrayList<>();
     private BrandService brandService;
 
     public CarService(BrandService brandService) {
@@ -27,9 +26,9 @@ public class CarService {
     }
 
     public void addCar(Car c) {
-        if (brandService.findById(c.getBrandId()) == null){
+        if (brandService.findById(c.getBrandId()) == null)
             throw new IllegalArgumentException("Brand ID not exist");
-        }
+
         for (Car car : cars) {
             if (car.getCarId().equals(c.getCarId()) ||
                 car.getFrameId().equals(c.getFrameId()) ||
@@ -42,11 +41,8 @@ public class CarService {
             !ValidationUtil.matchEngineId(c.getEngineId()))
             throw new IllegalArgumentException("Invalid Car Data");
 
-        
-        
         cars.add(c);
     }
-    
     public void updateCar (Car c){
         for (Car car: cars){
             if (car.getCarId().equals (c.getCarId())){
@@ -57,23 +53,24 @@ public class CarService {
                 System.out.println("4. Engine ID");
                 System.out.print ("Your choice: ");
                 int choice = sc.nextInt();
-            }
-        }
-    }
-    // Sub function of updateCar
-    // Start
-    public void updateEngineIdOfCar (){
-        while (true){
-            if (){
-                
-            } else {
-                
-                break;
+                switch (choice){
+                    case 1:
+                        car.setBrandId ();
+                        break;
+                    case 2:
+                        car.setColor();
+                        break;
+                    case 3:
+                        car.setFrameId ();
+                        break;
+                    case 4:
+                        car.setEngineId ();
+                        break;
+                }
             }
         }
     }
     // End
-
     public void removeCar(String id) {
         cars.removeIf(c -> c.getCarId().equals(id));
     }
