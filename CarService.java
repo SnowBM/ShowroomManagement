@@ -46,7 +46,7 @@ public class CarService {
         
         cars.add(c);
     }
-    
+
     public void updateCar (Car c){
         for (Car car: cars){
             if (car.getCarId().equals (c.getCarId())){
@@ -57,22 +57,23 @@ public class CarService {
                 System.out.println("4. Engine ID");
                 System.out.print ("Your choice: ");
                 int choice = sc.nextInt();
+                switch (choice){
+                    case 1:
+                        car.setBrandId ();
+                        break;
+                    case 2:
+                        car.setColor();
+                        break;
+                    case 3:
+                        car.setFrameId ();
+                        break;
+                    case 4:
+                        car.setEngineId ();
+                        break;
+                }
             }
         }
     }
-    // Sub function of updateCar
-    // Start
-    public void updateEngineIdOfCar (){
-        while (true){
-            if (){
-                
-            } else {
-                
-                break;
-            }
-        }
-    }
-    // End
 
     public void removeCar(String id) {
         cars.removeIf(c -> c.getCarId().equals(id));
@@ -92,3 +93,4 @@ public class CarService {
             .forEach(System.out::println);
     }
 }
+
